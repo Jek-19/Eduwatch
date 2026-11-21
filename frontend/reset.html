@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reset password - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main class="container narrow">
+  <div class="card login-card">
+    <h1>Choose a new password</h1>
+    <p class="muted" id="checking">Checking your link...</p>
+
+    <section id="invalid" hidden>
+      <div class="alert alert-error" role="alert">This reset link is invalid, already used, or has expired.</div>
+      <p><a class="btn btn-primary" href="forgot.html">Request a new link</a></p>
+      <p><a href="login.html">Back to log in</a></p>
+    </section>
+
+    <section id="valid" hidden>
+      <p class="muted">Account: <strong id="account"></strong></p>
+      <div id="alerts"></div>
+      <form id="reset-form" method="post" action="reset.html">
+        <label for="password">New password</label>
+        <input id="password" name="password" type="password" minlength="8" maxlength="72" required autofocus autocomplete="new-password">
+        <label for="password2">Confirm new password</label>
+        <input id="password2" name="password2" type="password" minlength="8" maxlength="72" required autocomplete="new-password">
+        <p class="hint">At least 8 characters, with at least one letter and one number.</p>
+        <button id="submit" class="btn btn-primary btn-block" type="submit">Save new password</button>
+      </form>
+    </section>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/reset.js"></script>
+</body>
+</html>

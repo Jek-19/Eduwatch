@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forgot password - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main class="container narrow">
+  <div class="card login-card">
+    <h1>Forgot your password?</h1>
+
+    <section id="step-form">
+      <p class="muted">Enter the email address linked to your account and we will send you a link to choose a new password.</p>
+      <div id="alerts"></div>
+      <form id="forgot-form" method="post" action="forgot.html">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" maxlength="120" required autofocus autocomplete="email">
+        <button id="submit" class="btn btn-primary btn-block" type="submit">Send reset link</button>
+      </form>
+      <div class="login-links"><a href="login.html">Back to log in</a></div>
+    </section>
+
+    <section id="step-done" hidden>
+      <div class="alert alert-success">
+        If that email is registered, we have sent a reset link. It works once and expires in
+        <span id="minutes">30</span> minutes.
+      </div>
+      <div id="demo-box" class="alert alert-warning" hidden>
+        <strong>Demo mode:</strong> email sending is switched off in <code>backend/config.php</code>, so here is the link instead:<br>
+        <a id="demo-link" href="#"></a>
+      </div>
+      <p><a href="login.html">Back to log in</a></p>
+    </section>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/forgot.js"></script>
+</body>
+</html>

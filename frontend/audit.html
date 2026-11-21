@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audit log - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<p id="loading" class="container muted">Loading the audit log...</p>
+<noscript><div class="container"><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></div></noscript>
+
+<main id="app" class="container" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Audit log</h1>
+      <p class="muted">Every grade change is recorded here (latest 200). It shows who made the change, so use a separate staff account for each teacher.</p>
+    </div>
+    <form class="search" method="get" action="audit.html">
+      <label class="sr-only" for="student">Filter by student ID</label>
+      <input id="student" name="student" type="search" placeholder="Filter by student ID" maxlength="10">
+      <button class="btn" type="submit">Filter</button>
+      <a id="clear-filter" class="btn" href="audit.html" hidden>Clear</a>
+    </form>
+  </div>
+
+  <section class="card">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>When</th><th>By</th><th>Action</th><th>Student</th><th>Subject / term</th><th class="num">Old</th><th class="num">New</th></tr></thead>
+        <tbody id="audit-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/audit.js"></script>
+</body>
+</html>

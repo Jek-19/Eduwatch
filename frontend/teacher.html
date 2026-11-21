@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teacher dashboard - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<p id="loading" class="container muted">Loading the dashboard...</p>
+<noscript><div class="container"><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></div></noscript>
+
+<main id="no-semester" class="container narrow" hidden>
+  <div class="card">
+    <h1>No current semester</h1>
+    <p>Add a semester row (with <code>is_current = 1</code>) in the academic database first.</p>
+  </div>
+</main>
+
+<main id="app" class="container" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Teacher dashboard</h1>
+      <p class="muted" id="sem-meta"></p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="student_new.html">Add student</a>
+      <button id="recalc" class="btn" type="button" title="Recalculate everyone's risk level from their current grades">Recalculate all risk</button>
+    </div>
+  </div>
+
+  <div id="alerts"></div>
+
+  <div id="new-account" class="alert alert-warning" hidden>
+    <strong>Account created for <span id="na-name"></span></strong> (ID <span id="na-id"></span>).<br>
+    Temporary password: <code class="pw" id="na-pw"></code>
+    &mdash; shown only once. The student must choose a new password at first login.
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-num" id="n-total">0</span><span class="stat-label">Students</span></div>
+    <div class="stat stat-high"><span class="stat-num" id="n-high">0</span><span class="stat-label">High risk</span></div>
+    <div class="stat stat-medium"><span class="stat-num" id="n-medium">0</span><span class="stat-label">Medium risk</span></div>
+    <div class="stat stat-low"><span class="stat-num" id="n-low">0</span><span class="stat-label">Low risk</span></div>
+  </div>
+
+  <div class="grid-2">
+    <section class="card">
+      <h2>Class-wide at-risk list</h2>
+      <p class="muted" id="no-risk" hidden>No students are currently flagged as medium or high risk.</p>
+      <ul class="risk-list" id="risk-list"></ul>
+    </section>
+    <section class="card">
+      <h2>Risk overview</h2>
+      <div class="chart-box"><canvas id="chart-risk" aria-label="Doughnut chart of how many students are at each risk level" role="img"></canvas></div>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="list-head">
+      <h2>Student list</h2>
+      <!-- A plain GET form: it just reloads this page with ?q=... and the script reads it. -->
+      <form class="search" method="get" action="teacher.html">
+        <label class="sr-only" for="q">Search students</label>
+        <input id="q" name="q" type="search" placeholder="Search ID or name" maxlength="60">
+        <button class="btn" type="submit">Search</button>
+        <a id="clear-search" class="btn" href="teacher.html" hidden>Clear</a>
+      </form>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Student ID</th><th>Last name</th><th>First name</th><th>With makeup grades</th><th>Gen. avg</th><th>Risk</th><th></th></tr>
+        </thead>
+        <tbody id="students-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/vendor/chart.umd.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/pages/teacher.js"></script>
+</body>
+</html>

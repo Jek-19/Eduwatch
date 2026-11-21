@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grades - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<p id="loading" class="container muted">Loading grades...</p>
+<noscript><div class="container"><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></div></noscript>
+
+<main id="app" class="container" hidden>
+  <p><a href="teacher.html">&larr; Back to dashboard</a></p>
+  <div class="page-head">
+    <div>
+      <h1 id="student-name"></h1>
+      <p class="muted" id="student-meta"></p>
+    </div>
+    <div id="risk-badge"></div>
+  </div>
+
+  <div id="alerts"></div>
+
+  <section class="card">
+    <h2>Why this risk level?</h2>
+    <ul class="plain" id="reasons"></ul>
+    <form id="makeup-form" class="inline-form" method="post" action="grades.html">
+      <label class="choice"><input type="checkbox" id="makeup"> With makeup grades</label>
+      <button class="btn btn-small" type="submit">Save</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2 id="grades-title">Grades</h2>
+    <p class="muted" id="no-grades" hidden>No grades yet. Add the first one below.</p>
+    <div class="table-wrap" id="grades-wrap" hidden>
+      <table class="grades-table">
+        <thead><tr id="grades-head"></tr></thead>
+        <tbody id="grades-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Add a grade</h2>
+    <form id="add-form" class="add-form" method="post" action="grades.html">
+      <div>
+        <label for="subject_id">Subject</label>
+        <select id="subject_id" name="subject_id" required><option value="">Choose...</option></select>
+      </div>
+      <div>
+        <label for="term">Term</label>
+        <select id="term" name="term" required><option value="">Choose...</option></select>
+      </div>
+      <div>
+        <label for="score">Grade (1.00 highest - 5.00 lowest)</label>
+        <input id="score" name="score" type="text" inputmode="decimal" maxlength="6" required placeholder="e.g. 1.75">
+      </div>
+      <div class="add-submit"><button class="btn btn-primary" type="submit">Add grade</button></div>
+    </form>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/grades.js"></script>
+</body>
+</html>

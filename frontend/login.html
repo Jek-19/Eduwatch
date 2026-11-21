@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main class="container narrow">
+  <div class="card login-card">
+    <h1>Welcome to EduWatch</h1>
+    <p class="muted">Log in with your student ID or staff username.</p>
+    <noscript><div class="alert alert-error">EduWatch needs JavaScript to log in. Please turn it on in your browser.</div></noscript>
+
+    <div id="alerts"></div>
+
+    <!-- method="post" is only a safety net: if JavaScript fails, the password is never put in the address bar. -->
+    <form id="login-form" method="post" action="login.html" autocomplete="on">
+      <label for="username">Student ID / staff username</label>
+      <input id="username" name="username" type="text" maxlength="30" required autofocus
+             placeholder="e.g. 224-00000" autocomplete="username">
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required autocomplete="current-password">
+
+      <button id="submit" class="btn btn-primary btn-block" type="submit">Log in</button>
+    </form>
+
+    <div class="login-links">
+      <a href="forgot.html">Forgot password?</a>
+      <a href="qr_scan.html">Scan QR code</a>
+    </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/login.js"></script>
+</body>
+</html>

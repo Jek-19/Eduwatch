@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR code - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main id="app" class="container narrow">
+  <p class="no-print"><a href="teacher.html">&larr; Back to dashboard</a></p>
+  <div class="card qr-card">
+    <noscript><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></noscript>
+    <div id="alerts"></div>
+    <h1 id="student-name"></h1>
+    <div id="qr-target" class="qr-target" role="img"></div>
+    <p class="qr-id" id="qr-id"></p>
+    <p class="hint no-print">This QR code contains only the student ID. It does not contain a password, so it cannot log anyone in by itself.</p>
+    <p class="no-print"><button class="btn btn-primary" type="button" data-print>Print</button></p>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/vendor/qrcode.js"></script>
+<script src="assets/js/pages/student_qr.js"></script>
+</body>
+</html>

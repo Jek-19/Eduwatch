@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My dashboard - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<p id="loading" class="container muted">Loading your dashboard...</p>
+<noscript><div class="container"><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></div></noscript>
+
+<main id="no-record" class="container narrow" hidden>
+  <div class="card">
+    <h1>No academic record yet</h1>
+    <p>Your account is not linked to an academic record yet. Please ask your teacher or adviser to check your student ID.</p>
+  </div>
+</main>
+
+<main id="app" class="container" hidden>
+  <div class="page-head">
+    <div>
+      <h1 id="hello">Hi</h1>
+      <p class="muted" id="student-meta"></p>
+    </div>
+    <div class="readonly-note">View only &mdash; you cannot edit grades</div>
+  </div>
+
+  <section id="risk-card" class="card risk-card">
+    <div class="risk-head">
+      <h2>Your status</h2>
+      <span id="risk-badge"></span>
+    </div>
+    <p class="insight" id="insight"></p>
+
+    <details class="why" id="why" hidden>
+      <summary>Why am I seeing this?</summary>
+      <ul id="why-list"></ul>
+      <p class="muted" id="gen-avg" hidden>Your general average so far: <strong id="gen-avg-num"></strong> (passing is <span id="pass-num"></span>).</p>
+    </details>
+    <p class="hint">This is an early-warning estimate based on your current grades. It is not a final result, and it can change as new grades come in.</p>
+  </section>
+
+  <div id="grades-area" hidden>
+    <div class="grid-2">
+      <section class="card">
+        <h2>Average per subject</h2>
+        <div class="chart-box"><canvas id="chart-bar" aria-label="Bar chart of your average grade per subject" role="img"></canvas></div>
+      </section>
+      <section class="card">
+        <h2>Grades by term</h2>
+        <div class="chart-box"><canvas id="chart-line" aria-label="Line chart of your grades across terms" role="img"></canvas></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>My grades</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr id="grades-head"></tr></thead>
+          <tbody id="grades-body"></tbody>
+        </table>
+      </div>
+      <p class="hint" id="makeup-note" hidden>Your record shows makeup grades.</p>
+    </section>
+  </div>
+
+  <section class="card" id="no-grades" hidden><p>No grades have been posted for this semester yet.</p></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/vendor/chart.umd.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/pages/student.js"></script>
+</body>
+</html>

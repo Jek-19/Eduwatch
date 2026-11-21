@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main id="app" class="container narrow">
+  <h1>Settings</h1>
+  <noscript><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></noscript>
+  <div id="alerts"></div>
+
+  <div id="forced-note" class="alert alert-warning" hidden>
+    For your security, please choose a new password before you continue. Your other settings unlock afterwards.
+  </div>
+
+  <section id="prefs-card" class="card" hidden>
+    <h2 id="prefs-title">Appearance</h2>
+    <form id="prefs-form" method="post" action="settings.html">
+      <fieldset>
+        <legend>Theme</legend>
+        <label class="choice"><input type="radio" name="theme" value="light"> Light mode</label>
+        <label class="choice"><input type="radio" name="theme" value="dark"> Dark mode</label>
+      </fieldset>
+
+      <fieldset id="tone-fieldset" hidden>
+        <legend>Tone of your insight message</legend>
+        <label class="choice"><input type="radio" name="tone" value="formal"> Formal</label>
+        <label class="choice"><input type="radio" name="tone" value="humor"> Humor (Gen Z)</label>
+        <p class="hint">This changes the wording on your dashboard only. It never changes your grades or your risk level.</p>
+      </fieldset>
+
+      <button id="prefs-submit" class="btn btn-primary" type="submit">Save settings</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Change password</h2>
+    <div id="pw-alerts"></div>
+    <form id="pw-form" method="post" action="settings.html">
+      <label for="current" id="current-label">Current password</label>
+      <input id="current" name="current" type="password" required autocomplete="current-password">
+      <label for="password">New password</label>
+      <input id="password" name="password" type="password" minlength="8" maxlength="72" required autocomplete="new-password">
+      <label for="password2">Confirm new password</label>
+      <input id="password2" name="password2" type="password" minlength="8" maxlength="72" required autocomplete="new-password">
+      <p class="hint">At least 8 characters, with at least one letter and one number.</p>
+      <button id="pw-submit" class="btn btn-primary" type="submit">Change password</button>
+    </form>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan QR code - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main class="container narrow">
+  <div class="card login-card">
+    <h1>Scan your QR code</h1>
+    <p class="muted">Point the camera at the QR code on your student ID. We will fill in your ID for you &mdash; you still type your password.</p>
+
+    <div id="reader" class="qr-reader" aria-live="polite"></div>
+    <div id="qr-status" class="alert alert-info" role="status">Press &ldquo;Start camera&rdquo; and allow camera access when your browser asks.</div>
+
+    <div class="btn-row">
+      <button id="qr-start" class="btn btn-primary" type="button">Start camera</button>
+      <button id="qr-stop" class="btn" type="button" hidden>Stop camera</button>
+    </div>
+
+    <p class="hint">Cameras only work on <strong>https://</strong> pages or on <strong>localhost</strong>. If the camera does not start, go back and type your ID instead.</p>
+    <div class="login-links"><a href="login.html">Back to log in</a></div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/vendor/html5-qrcode.min.js"></script>
+<script src="assets/js/pages/qr_scan.js"></script>
+</body>
+</html>

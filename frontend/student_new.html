@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add student - EduWatch</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<div id="flash"></div>
+<main id="app" class="container narrow">
+  <p><a href="teacher.html">&larr; Back to dashboard</a></p>
+  <div class="card">
+    <h1>Add a student</h1>
+    <p class="muted">This creates the student record and a login account. The student logs in with their ID and a temporary password.</p>
+    <noscript><div class="alert alert-error">EduWatch needs JavaScript. Please turn it on in your browser.</div></noscript>
+
+    <div id="alerts"></div>
+
+    <form id="student-form" method="post" action="student_new.html">
+      <label for="student_id">Student ID</label>
+      <input id="student_id" name="student_id" type="text" maxlength="10" required placeholder="224-00000" pattern="(124|224)-[0-9]{5}">
+
+      <label for="last_name">Last name</label>
+      <input id="last_name" name="last_name" type="text" maxlength="60" required>
+
+      <label for="first_name">First name</label>
+      <input id="first_name" name="first_name" type="text" maxlength="60" required>
+
+      <label for="email">Email (needed for "Forgot password")</label>
+      <input id="email" name="email" type="email" maxlength="120">
+
+      <label class="choice"><input type="checkbox" id="makeup" name="makeup" value="1"> With makeup grades</label>
+
+      <button id="submit" class="btn btn-primary" type="submit">Create student</button>
+    </form>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/student_new.js"></script>
+</body>
+</html>
